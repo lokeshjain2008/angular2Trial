@@ -49,11 +49,16 @@ describe('AppComponent', function() {
       }));
 
   it('should have expected <h1> text',
-      injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-
+       injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+        console.log(TestComponentBuilder);
+         
         return tcb.createAsync(AppComponent).then(fixture => {
-          // fixture.detectChanges();  // need for a binding; we don't have one
+           
+          fixture.detectChanges();  // need for a binding; we don't have one
           let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;
+          let h2:HTMLElement =  fixture.debugElement.query(el=>el.name=='h2').nativeElement;
+          
+          expect(h2.innerText).toEqual('lokesh kumar jain');
           expect(h1.innerText).toMatch(/angular 2 app/i, '<h1> should say something about "Angular 2 App"');
         });
       }));
