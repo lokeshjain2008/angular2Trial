@@ -28,9 +28,9 @@ import HeroChild  from './hero-child';
     </ul>
     <p> <em> There are more and deep routes</em> </p>
     <nav>
-      <a [routerLink]="['DeepOne']">deep one</a>
+      <a [routerLink]="['DeepOne', {name:'lokesh kumar one', age:22}]">deep one</a>
 
-      <a [routerLink]="['DeepTwo']">deep two(same data)</a>
+      <a [routerLink]="['DeepTwo', {name:'Manoharra', age:33}]">deep two(same data)</a>
     </nav>
     <hr/>
     <my-hero-detail [hero]="selectedHero"></my-hero-detail>
@@ -47,11 +47,15 @@ import HeroChild  from './hero-child';
     path: '/deep1',
     component: HeroChild,
     useAsDefault: true,
+
   },
   {
     name: 'DeepTwo',
     path: '/deep2',
-    component: HeroChild
+    component: HeroChild,
+    data: {
+      inside: "lokesh jain"
+    }
   }
 ])
 export class HeroesComponent {

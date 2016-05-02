@@ -4,10 +4,15 @@ import { Router } from 'angular2/router';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
+// demo of the observable hero lists
+
+import { HttpHeroesComponent } from './httpHero/http-heroes.component';
+
 @Component({
   selector: 'my-dashboard',
   templateUrl: 'app/dashboard.component.html',
-  styleUrls: ['app/dashboard.component.css']
+  styleUrls: ['app/dashboard.component.css'],
+  directives: [HttpHeroesComponent]
 })
 export class DashboardComponent implements OnInit {
 
